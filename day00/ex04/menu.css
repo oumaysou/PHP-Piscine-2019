@@ -1,0 +1,121 @@
+body {
+    font-family: 'Source code pro', Calibri, serif;
+    margin: 0px;
+    padding: 0px;
+}
+.copyright{
+    text-align: right;
+    padding: 20px 30px;
+    font-size: 1.1em;
+}
+nav {
+    width: 100%;
+    background-color: #424242;
+}
+/* Enfant direct de nav*/
+nav > ul {
+    margin: 0px;
+    padding: 0px;
+}
+/*Mettre le parent ul de li en Clearfix pour correspondre à l'enfant floatant*/ 
+nav > ul::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/*Mettre le menu Horiz avec Float*/
+nav > ul > li {
+    float: left;
+    position: relative;
+}
+ 
+nav > ul > li > a {
+    padding: 20px 30px;
+    color: #FFF;
+}
+ 
+nav >  ul > li:hover a {
+    padding: 15px 30px 20px 30px;
+}
+/* Cibler tous les élémts Li pour supprimer les*/
+nav li {
+    list-style-type: none;
+}
+/* Faire cacher les submenu */
+.submenu {
+    display: none;
+}
+/*Suppr les souslignements par defaut*/ 
+nav a {
+    display: inline-block;
+    text-decoration: none;
+}
+/*lors du passage de la souris*/
+nav li:hover .submenu {
+    display: inline-block;
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    padding: 0px;
+}
+ 
+.submenu li {
+    border-bottom: 1px solid #CCC;
+}
+ 
+.submenu li a {
+    padding: 10px 30px;
+    font-size: 13px;
+    color: #222538;
+    width: 270px;
+}
+ 
+.menu-html:hover {
+    border-top: 5px solid #e44d26;
+    background-color: RGBA(228,77,38,0.15);
+}
+ 
+.menu-css:hover {
+    border-top: 5px solid #0070bb;
+    background-color: RGBA(000,112,192,0.15);
+}
+ 
+.menu-javascript:hover {
+    border-top: 5px solid #f1dc4f;
+    background-color: RGBA(241,211,79,0.15);
+}
+ 
+.menu-contact:hover {
+    border-top: 5px solid #BBB;
+    background-color: RGBA(220,220,220,0.15);
+}
+ 
+.menu-html .submenu {
+    background-color: RGB(230,100,40);
+}
+ 
+.menu-css .submenu {
+    background-color: RGB(000,160,240);
+}
+ 
+.menu-javascript .submenu {
+    background-color: RGB(250,215,100);
+}
+ 
+.submenu li:hover a {
+    color: #EEE;
+    font-weight: bold;
+}
+ 
+.menu-html .submenu li:hover {
+    background-color: RGB(210,77,60);
+}
+ 
+.menu-css .submenu li:hover {
+    background-color: RGB(000,115,200);
+}
+ 
+.menu-javascript .submenu li:hover {
+    background-color: RGB(200,165,75);
+}

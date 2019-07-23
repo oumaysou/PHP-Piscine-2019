@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>calc</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <div>
+            <form id="calc">
+                <input type="text" name="left" id="left"><br><br>
+                    <select name="op">
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                        <option value="*">*</option>
+                        <option value="/">/</option>
+                        <option value="%">%</option>
+                    </select><br><br>
+                <input type="text" name="right" id="right"><br><br>
+                <input class="button" type="submit" id="submit" value="Try me!">
+            </form>
+        </div>
+        <script>
+                setInterval(() => alert("Please, use me..."), 30 * 1000);
+                function log(message) {
+                        console.log(message);
+                        alert(message);
+                }
+
+                function is_int(value){
+                    if((parseFloat(value) == parseInt(value)) && !isNaN(value)){ 
+                    return true;
+                    } 
+                    else {
+                        return false;
+                    }
+                }
+                function isInt(str) {
+                    return (/^(\+|\-)?(0|[1-9]\d*)$/.test(str));
+                }
+                var calc = document.getElementById('calc');
+                calc.addEventListener('submit', function (e) {
+                        e.preventDefault()
+                        var left = document.getElementById("left").value;
+                        var op = e.target.querySelector('select[name=op]').value
+                        var right = document.getElementById("right").value;
+
+                        if (isNaN(left) || isNaN(right)) {
+                            return log('Error :(');
+                        }
+                        if (left < 0 || right < 0) {
+                            return log('Error :(');
+                        }
+                        if (!isInt(right) || !isInt(left))
+                        {
+                            return log('Error :(');
+                        }
+                        left = parseInt(left);
+                        right = parseInt(right);
+                        if (op == '+')
+                            log(left + right);
+                        else if (op == '-')
+                            log(left - right);
+                        else if (op == '*') 
+                            log(left * right);
+                        else if (op == '/')
+                        {
+                            if (right === 0)
+                                return log("It's over 9000!");
+                            log(left / right);
+                        }    
+                        else if (op == '%')                
+                        {
+                            if (right === 0)
+                                return log("It's over 9000!");
+                            log(left % right);
+                        }
+                })
+        </script>
+    </body>
+</html>
